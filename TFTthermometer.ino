@@ -14,8 +14,8 @@
 DHT_Unified dht(DHTPIN, DHTTYPE);
 TFT TFTscreen = TFT(cs, dc, rst);
 ezButton button0(A0);
-ezButton button1(A1);
-ezButton button2(A2);
+//ezButton button1(A1);
+//ezButton button2(A2);
 
 uint8_t state = 0;                  // initial state for statemachine
 const uint32_t INTERVAL_MS = 60000;  // interval in ms for statemachine
@@ -30,8 +30,8 @@ float minTemp = 99.9;
 float minHumi = 99.9;
 
 const int buttonPin0 = A0;
-const int buttonPin1 = A1;
-const int buttonPin2 = A2;
+//const int buttonPin1 = A1;
+//const int buttonPin2 = A2;
 
 int buttonState0;
 //int buttonState1;
