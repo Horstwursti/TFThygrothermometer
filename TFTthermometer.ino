@@ -14,6 +14,8 @@
 DHT_Unified dht(DHTPIN, DHTTYPE);
 TFT TFTscreen = TFT(cs, dc, rst);
 ezButton button0(A0);
+ezButton button1(A1);
+ezButton button2(A2);
 
 uint8_t state = 0;                  // initial state for statemachine
 const uint32_t INTERVAL_MS = 60000;  // interval in ms for statemachine
@@ -28,8 +30,12 @@ float minTemp = 99.9;
 float minHumi = 99.9;
 
 const int buttonPin0 = A0;
+const int buttonPin1 = A1;
+const int buttonPin2 = A2;
 
 int buttonState0;
+//int buttonState1;
+//int buttonState2;
 
 const int SHORT_PRESS_TIME = 1000;
 const int LONG_PRESS_TIME = 3000;
@@ -41,6 +47,8 @@ bool isLongDetected = false;
 
 void setup() {
   button0.setDebounceTime(50);
+  button1.setDebounceTime(50);
+  button2.setDebounceTime(50);
   TFTscreen.begin();
   dht.begin();
   drawScreen();
@@ -142,8 +150,8 @@ void drawSensor()  {
   // delete MIN/MAX labels
   TFTscreen.stroke(0, 0, 0);
   TFTscreen.fill(0, 0, 0);
-  TFTscreen.rect(129, 2, 20, 10);
-  TFTscreen.rect(129, 69, 20, 10);
+  TFTscreen.rect(127, 0, 23, 13);
+  TFTscreen.rect(127, 67, 23, 13);
 
   sensors_event_t event;
   dht.temperature().getEvent(&event);
@@ -219,10 +227,10 @@ void getMin() {
 void drawMax()  {
   TFTscreen.stroke(0, 255, 255);
   TFTscreen.fill(0, 0, 255);
-  TFTscreen.rect(129, 2, 20, 10);
+  TFTscreen.rect(127, 0, 23, 13);
   TFTscreen.stroke(0, 255, 255);
   TFTscreen.fill(0, 0, 255);
-  TFTscreen.rect(129, 69, 20, 10);
+  TFTscreen.rect(127, 67, 23, 13);
   // write small text labels
   TFTscreen.stroke(255, 255, 255);
   TFTscreen.setTextSize(1);
@@ -247,11 +255,11 @@ void drawMax()  {
 void drawMin()  {
   TFTscreen.stroke(0, 255, 0);
   TFTscreen.fill(255, 0, 0);
-  TFTscreen.rect(129, 2, 20, 10);
+  TFTscreen.rect(127, 0, 23, 13);
 
   TFTscreen.stroke(0, 255, 0);
   TFTscreen.fill(255, 0, 0);
-  TFTscreen.rect(129, 69, 20, 10);
+  TFTscreen.rect(127, 67, 23, 13);
   // write small text labels
   TFTscreen.stroke(255, 255, 255);
   TFTscreen.setTextSize(1);
