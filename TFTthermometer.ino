@@ -28,8 +28,6 @@ float minTemp = 99.9;
 float minHumi = 99.9;
 
 const int buttonPin0 = A0;
-const int buttonPin1 = A1;
-const int buttonPin2 = A2;
 
 int buttonState0;
 
