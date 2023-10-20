@@ -14,8 +14,6 @@
 DHT_Unified dht(DHTPIN, DHTTYPE);
 TFT TFTscreen = TFT(cs, dc, rst);
 ezButton button0(A0);
-ezButton button1(A1);
-ezButton button2(A2);
 
 uint8_t state = 0;                  // initial state for statemachine
 const uint32_t INTERVAL_MS = 60000;  // interval in ms for statemachine
@@ -34,8 +32,6 @@ const int buttonPin1 = A1;
 const int buttonPin2 = A2;
 
 int buttonState0;
-//int buttonState1;
-//int buttonState2;
 
 const int SHORT_PRESS_TIME = 1000;
 const int LONG_PRESS_TIME = 3000;
@@ -47,8 +43,6 @@ bool isLongDetected = false;
 
 void setup() {
   button0.setDebounceTime(50);
-  button1.setDebounceTime(50);
-  button2.setDebounceTime(50);
   TFTscreen.begin();
   dht.begin();
   drawScreen();
