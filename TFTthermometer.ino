@@ -47,8 +47,8 @@ bool isLongDetected = false;
 
 void setup() {
   button0.setDebounceTime(50);
-  button1.setDebounceTime(50);
-  button2.setDebounceTime(50);
+  //button1.setDebounceTime(50);
+  //button2.setDebounceTime(50);
   TFTscreen.begin();
   dht.begin();
   drawScreen();
@@ -286,4 +286,9 @@ void resetMinMax() {
   maxHum[0] = '\0';
   minTmp[0] = '\0';
   minHum[0] = '\0';
+  maxTemp = 0;
+  maxHumi = 0;
+  minTemp = 99.9;
+  minHumi = 99.9;
+
 }
